@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Page</title>
+    <link rel="stylesheet" href="{% static 'registration.css' %}" />
+</head>
+<body>
+
+    {% for msg in messages %}
+    <strong>Message:{{ msg }}</strong>
+    {% endfor %}
+
+    <form method="POST" class="post-form" action="/home/registration/">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="row">
+                <label class="label"></label>
+                <div class="col">
+                    <h3>Registration Page</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    firstname:<input type="text" class="data" name="firstname" id="id_fname" required maxlength="20"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    lastname:<input type="text" class="data" name="lastname" id="id_lname" required maxlength="100"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    email:<input type="email" class="data" name="email" id="id_email" required maxlength="254"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Username:<input type="text" class="data" name="username" id="id_username" required maxlength="15"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Password:<input type="text" class="data" name="password" id="id_password" required maxlength="100"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Confirm Password:<input type="text" class="data" name="confirm_password" id="id_confirmpassword" required maxlength="15" />
+                </div>
+            </div>
+            <div class="row">
+                <label class="label"></label>
+                <div class="col">
+                    <button type="submit" class="btn">Register</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+{% endblock %}

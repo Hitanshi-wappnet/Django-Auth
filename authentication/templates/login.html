@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="{% static 'registration.css' %}" />
+</head>
+<body>
+
+    {% for msg in messages %}
+    <strong>Message:{{ msg }}</strong>
+    {% endfor %}
+
+    <form method="POST" class="post-form" action="/home/login/">
+        {% csrf_token %}
+        <div class="container">
+            <br>
+            <div class="row">
+                <label class="label"></label>
+                <div class="col">
+                    <h3>Login Page</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Username:<input type="text" class="data" name="username" id="id_username" required maxlength="15"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    Password:<input type="text" class="data" name="password" id="id_password" required maxlength="100"/>
+                </div>
+            </div>
+            <div class="row">
+                <label class="label"></label>
+                <div class="col">
+                    <button type="submit" class="btn">Login</a></button>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
+{% endblock %}
